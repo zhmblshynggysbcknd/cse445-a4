@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Directory of National Parks (CSE445 Assignment 4, Q1.2) -->
-<NationalParks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="NationalParks.xsd">
+<NationalParks
+   xmlns="http://www.cse445.asu.edu/NationalParks"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.cse445.asu.edu/NationalParks https://YOUR-GITHUB-USERNAME.github.io/cse445-a4/NationalParks.xsd">
 
   <NationalPark Rating="4.9">
     <Name>Grand Canyon</Name>

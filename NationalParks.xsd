@@ -1,37 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Schema for the directory of National Parks (CSE445 Assignment 4, Q1.1) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns="http://www.cse445.asu.edu/NationalParks"
+   targetNamespace="http://www.cse445.asu.edu/NationalParks"
+   elementFormDefault="qualified" attributeFormDefault="unqualified">
 
   <!-- Root element: a directory holding one or more national parks -->
-  <xs:element name="NationalParks">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="NationalPark" type="NationalParkType" minOccurs="1" maxOccurs="unbounded"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+  <xsd:element name="NationalParks" type="NationalParksType"/>
+
+  <xsd:complexType name="NationalParksType">
+    <xsd:sequence>
+      <xsd:element name="NationalPark" type="NationalParkType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
 
   <!-- One national park: Name, one or more Phone, Address (left-to-right order); optional Rating attribute -->
-  <xs:complexType name="NationalParkType">
-    <xs:sequence>
-      <xs:element name="Name" type="xs:string"/>
-      <xs:element name="Phone" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
-      <xs:element name="Address" type="AddressType"/>
-    </xs:sequence>
-    <xs:attribute name="Rating" type="xs:decimal" use="optional"/>
-  </xs:complexType>
+  <xsd:complexType name="NationalParkType">
+    <xsd:sequence>
+      <xsd:element name="Name" type="xsd:string"/>
+      <xsd:element name="Phone" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+      <xsd:element name="Address" type="AddressType"/>
+    </xsd:sequence>
+    <xsd:attribute name="Rating" type="xsd:string" use="optional"/>
+  </xsd:complexType>
 
   <!-- Address: Number, Street, City, State, Zip; required NearestAirport attribute -->
-  <xs:complexType name="AddressType">
-    <xs:sequence>
-      <xs:element name="Number" type="xs:int"/>
-      <xs:element name="Street" type="xs:string"/>
-      <xs:element name="City" type="xs:string"/>
-      <xs:element name="State" type="xs:string"/>
+  <xsd:complexType name="AddressType">
+    <xsd:sequence>
+      <xsd:element name="Number" type="xsd:int"/>
+      <xsd:element name="Street" type="xsd:string"/>
+      <xsd:element name="City" type="xsd:string"/>
+      <xsd:element name="State" type="xsd:string"/>
       <!-- string, not int, so ZIP codes with a leading zero (e.g. 04609) keep it -->
-      <xs:element name="Zip" type="xs:string"/>
-    </xs:sequence>
-    <xs:attribute name="NearestAirport" type="xs:string" use="required"/>
-  </xs:complexType>
+      <xsd:element name="Zip" type="xsd:string"/>
+    </xsd:sequence>
+    <xsd:attribute name="NearestAirport" type="xsd:string" use="required"/>
+  </xsd:complexType>
 
-</xs:schema>
+</xsd:schema>
